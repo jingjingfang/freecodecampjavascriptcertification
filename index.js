@@ -1,32 +1,31 @@
-//Convert the given number into a roman numeral.
+/*Return true if the given string is a palindrome. Otherwise, return false.
+A palindrome is a word or sentence that's spelled the same way both forward and backward, 
+ignoring punctuation, case, and spacing.
+You'll need to remove all non-alphanumeric characters (punctuation, spaces and symbols) 
+and turn everything into the same case (lower or upper case) in order to check for palindromes.*/
 
 
-function convertToRoman(num) {
-    var romanToNum = {
-        M: 1000,
-        CM: 900,
-        D: 500,
-        CD: 400,
-        C: 100,
-        XC: 90,
-        L: 50,
-        XL: 40,
-        X: 10,
-        IX: 9,
-        V: 5,
-        IV: 4,
-        I: 1
-    };
+function palindrome(str) {
 
-    var roman = "";
+    // find globally any non word character or underscore
+    var reg = /[\W_]/g;
 
-    // to iterate through all the keys in an object.
-    for (var key in romanToNum)
-        while (num >= romanToNum[key]) {
-            roman += key;
-            num -= romanToNum[key];
-        }
-    return roman;
+    // replace reg to an empty string (remove it)
+    var smallStr = str.toLowerCase().replace(reg, "");
 
+    var reversedString = smallStr.split("").reverse().join("");
+
+    if (reversedString === smallStr) {
+        return true;
+    } else {
+        return false;
+    }
 }
+
+palindrome("eye");
+
+
+
+
+
 
