@@ -30,4 +30,3 @@ function convertToRoman(num) {
 
 }
 
-alert(convertToRoman(36));
